@@ -11,5 +11,6 @@ pip3 install flask flask-sqlalchemy
 pip3 install octokit
 pip3 install pygithub
 pip3 install firebase_admin
+pip3 install pyrebase
 
 ```
