@@ -51,3 +51,27 @@
     font-family: 'Figtree',sans-serif;
     font-size: 2rem;
 }
+.gitstats{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10rem; 
+    background-color: black;
+}
+.stats{
+    height: 320px;
+    width: 320px;
+    border-radius: 40px;
+    background-color: #0D0D0D;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding: 2em;
+}
+#stats_two_logo{
+    height: 10em;
+    width: 10em;
+}
