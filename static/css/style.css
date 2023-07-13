@@ -1,44 +1,53 @@
 *{
+    padding:0;
     margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    color: black;
 }
-header{
-    background-color: coral;
-}
-
-.navbar{
-    padding: 2% 0% 4% 0%;
+.container{
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
-}
-.navbtn{
-    
-    display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    
-
-}
-li{
-    list-style-type: none;
-    text-align: center;
-    
-}
-a{
-    text-decoration: none;
-}
-.btn{
-    height: 50px;
-    width: 200px;
-    font-size: 30px;
-    
+    background-color: #EFEFD0;
+    flex-wrap: wrap-reverse;
 }
 .heading{
-    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 13rem 6rem;
+    justify-content: center;
+    align-items: center;
+}
+.headinglines{
+    font-weight: bold;
+    color: #004E89;
+}
+.image{
+    height: 30%;
+    width: 30%;
+    padding: 6rem;
+}
+#lineone{
+    font-size: 14rem;
+    font-family: 'League Gothic', sans-serif;
+}
+#linetwo{
+    font-family: 'Figtree', sans-serif;
+    
+    font-size: 5rem;
+}
+.aboutus{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10rem;
+    align-items: center;
+    background-color: #FF6B34;
+}
+#aboutus_owasp_logo{
+    width: 70%;
+    height: 70%;
+}
+#aboutusright{
+    font-family: 'Figtree',sans-serif;
+    font-size: 2rem;
 }

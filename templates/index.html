@@ -1,39 +1,24 @@
 {% extends 'base.html' %}
 
-{% block head %} 
+{% block head %}
 
 {% endblock %}
 
-{% block body %} 
+{% block body %}
 
-<header>
-    <div class="navbar">
-        <div class="heading">Intra Sociey Hackathon</div>
-        <div class="navbtn">
-            <ul class="navbtn">
-
-                <a href="/">
-                    <li class="btn" id="homebtn">Home</li>
-                </a>
-                <a href="/">
-                    <li class="btn" id="aboutbtn">About <br> Project</li>
-                </a>
-                <a href="/">
-                    <li class="btn" id="contactbtn">Contact <br> Us</li>
-                </a>
-
-            </ul>
-        </div>
-        <div class="login">
-            <ul>
-
-                <li class="btn" id="loginbtn">Login</li>
-
-            </ul>
-        </div>
-        
+<div class="container">
+    <div class="heading">
+        <p id="lineone" class="headinglines">OWASP</p>
+        <p id="linetwo" class="headinglines">Projects Dashboard</p>
     </div>
-</header>
+    <div class="image">
+        <img src="{{ url_for('static', filename='images/github.svg') }}" alt="Github Logo">
+    </div>
+</div>
+<div class="aboutus">
+    <div class="aboutusbox" id="aboutusleft"><img src="{{ url_for('static', filename='images/owasp-full-black.svg') }}" alt="OWASP Logo" id="aboutus_owasp_logo"></div>
+    <div class="aboutusbox" id="aboutusright">Behold the masterpieces from our brilliant contributors, a spectacular collection of ongoing projects directly fetched from Github. Be amazed by the relentless commits, issues, and pull requests!</div>
+</div>
 
 
 {% endblock %}
