@@ -71,7 +71,15 @@
     align-items: center;
     padding: 2em;
 }
+#stats_one_logo{
+    height: 8em;
+    width: 8em;
+}
 #stats_two_logo{
     height: 10em;
     width: 10em;
+}
+#stats_three_logo{
+    height: 9em;
+    width: 9em;
 }
