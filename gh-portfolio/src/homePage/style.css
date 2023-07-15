@@ -84,6 +84,7 @@ body {
 
   font-size: 4rem;
 }
+
 .aboutus {
   display: flex;
   flex-direction: row;
@@ -109,76 +110,62 @@ body {
   height: 30vh;
   fill: white !important;
   box-sizing: border-box;
+  
 }
 #aboutusright {
   font-family: "Figtree", sans-serif;
   font-size: 2rem;
+  background: rgba(255, 255, 255, 0.27);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.5px);
+  -webkit-backdrop-filter: blur(5.5px);
+  border: 2px solid rgba(255, 255, 255, 1);
+  border-radius: 25px;
+  padding: 2.5rem;
+  text-align: justify;
 }
-.gitstats {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  padding: 10rem;
-  background-color: #00192c;
-  position: relative;
-  z-index: -1;
-  /* background-color: transparent; */
+
+.techstackheading{
   background-image: url("../images/waves3.svg") !important;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
-  z-index: -3;
-  margin-top: -25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   height: 100vh;
+  width: 100vw;
 }
-.stats {
-  height: 320px;
-  width: 320px;
-  border-radius: 40px;
-  background-color: #0d0d0d;
-  /* background-color: #d4d4d4; */
+.techstackheading_p{
+  font-family: "League Gothic", sans-serif;
+  font-size: 5rem;
+  font-weight: bolder;
+  padding-bottom: 15rem;
+  text-shadow: 5px 5px #c62368;
+}
+.techstack{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-evenly;
-  justify-items: stretch;
   align-items: center;
-  padding: 2em;
+  
 }
-#stats_one_logo {
-  height: 8em;
-  width: 8em;
-}
-#stats_two_logo {
-  height: 10em;
-  width: 10em;
-}
-#stats_three_logo {
-  height: 9em;
-  width: 9em;
-}
-.statssvg {
-  fill: #efefd0 !important;
-}
-.content {
+.tech{
+  background-color: #0d0d0d;
+  border-radius: 25px;
+  height: 10rem;
+  width: 10rem;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  font-size: 40px;
-  margin-top: 10%;
+  margin: 2rem;
+}
+.techimg{
+  height: 7rem;
+  width: 7rem;
 }
 
-.content > h2,
-.content > h4 {
-  color: #efefd0;
-  font-family: "Figtree", sans-serif;
-}
-
-.content > h4 {
-  font-size: 30px;
-  margin-top: 2%;
-}
 
 .top_contributors_content_1,
 .top_contributors_content_2 {
