@@ -1,0 +1,180 @@
+* {
+    padding: 0;
+    margin: 0;
+    color: #efefd0;
+    font-family: 'Figtree', sans-serif;
+  }
+  body {
+    /* background-image: url("../images/layered-waves-haikei.svg");
+    background-repeat: no-repeat;
+    background-size: cover; */
+    overflow-x: hidden;
+  }
+  .container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    /* background-color: #efefd0; */
+    background-image: url("../images/layered-waves-haikei.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-color: transparent; */
+    flex-wrap: wrap;
+    height: 110vh;
+    width: 100vw;
+  }
+  .heading {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 13rem 6rem;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .headinglines {
+    font-weight: bold;
+    color: #004e89;
+    /* justify-content: flex-start; */
+  }
+  .image {
+    height: 25%;
+    width: 25%;
+    padding: 6rem;
+  }
+  
+  #lineone {
+    font-size: 8rem;
+    font-family: "League Gothic", sans-serif;
+    text-shadow: 7px 5px 1px #ff6b34;
+  }
+  #linetwo {
+    font-family: "Figtree", sans-serif;
+  
+    font-size: 4rem;
+  }
+  .aboutus {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    justify-items: center;
+    padding: 10rem;
+    /* padding-top: 50rem; */
+    align-items: center;
+    margin-top: -25%;
+    /* background: linear-gradient(#efefd0, #002d4f, #00192c); */
+    background-color: #c62368;
+    z-index: -1;
+    position: relative;
+    background-image: url("../images/layered-waves-haikei_2.svg") !important;
+    background-repeat: no-repeat;
+    background-size:cover;
+    color: #ffffff;
+    height: 100vh;
+  }
+  
+  
+  #aboutus_owasp_logo {
+    width: 70%;
+    height: 70%;
+    fill: white !important;
+  }
+  #aboutusright {
+    font-family: "Figtree", sans-serif;
+    font-size: 2rem;
+  }
+  .gitstats {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10rem;
+    background-color: #00192c;
+    position: relative;
+    z-index: -1;
+    /* background-color: transparent; */
+    background-image: url("../images/waves3.svg") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: -3;
+    margin-top: -10%;
+  }
+  .stats {
+    height: 320px;
+    width: 320px;
+    border-radius: 40px;
+    background-color: #0d0d0d;
+    /* background-color: #d4d4d4; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    justify-items: stretch;
+    align-items: center;
+    padding: 2em;
+  }
+  #stats_one_logo {
+    height: 8em;
+    width: 8em;
+  }
+  #stats_two_logo {
+    height: 10em;
+    width: 10em;
+  }
+  #stats_three_logo {
+    height: 9em;
+    width: 9em;
+  }
+  .statssvg {
+    fill: #efefd0 !important;
+  }
+  .content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 40px;
+    margin-top: 10%;
+  }
+
+.content>h2, .content>h4{
+    color: #efefd0;
+    font-family: 'Figtree', sans-serif;
+}
+
+.content>h4{
+    font-size: 30px;
+    margin-top: 2%;
+}
+
+.top_contributors_content{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3rem;
+  margin-top: 5%;
+  width: 100%;
+}
+
+.top_contributors{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #000214;
+  z-index: -5;
+  position: relative;
+  margin-top: 3rem;
+}
+
+.top_contributors_content_inner{
+  background-color: #0d0d0d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.top_contributors_content_inner>img{
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1rem;
+}
