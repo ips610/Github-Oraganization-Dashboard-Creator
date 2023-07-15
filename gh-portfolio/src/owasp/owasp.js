@@ -2,7 +2,7 @@ import owaspLogo from "../images/owasp-full-black.svg";
 import githubLogo from "../images/github.svg";
 import "./style.css";
 import VanillaTilt from "vanilla-tilt";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 export default function Owasp() {
   // var speed = 15;

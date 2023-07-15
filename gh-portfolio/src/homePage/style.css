@@ -12,8 +12,9 @@ body {
 }
 .container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-direction: row;
+  align-items: flex-start;
   /* background-color: #efefd0; */
   background-image: url("../images/layered-waves-haikei.svg");
   background-repeat: no-repeat;
@@ -39,7 +40,8 @@ body {
 .image {
   height: 25%;
   width: 25%;
-  padding: 6rem;
+  /* padding: 6rem; */
+  /* margin-top: -20%; */
 }
 
 #lineone {
@@ -53,7 +55,10 @@ body {
   letter-spacing: 0.15em; /* Adjust as needed */
   animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
 }
-
+.orgname{
+  display: flex;
+  flex-direction: row;
+}
 /* The typing effect */
 @keyframes typing {
   from {
@@ -99,10 +104,11 @@ body {
   height: 100vh;
 }
 
-#aboutus_owasp_logo {
-  width: 70%;
-  height: 70%;
+#aboutus_billi_logo {
+  width: 30vw;
+  height: 30vh;
   fill: white !important;
+  box-sizing: border-box;
 }
 #aboutusright {
   font-family: "Figtree", sans-serif;
