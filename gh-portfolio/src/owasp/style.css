@@ -659,7 +659,7 @@ body {
 
 
 }
-@media screen and (max-width:1450px) {
+@media screen and(min-width:400px) and (max-width:1450px) {
   .stats {
     height: 30vh;
     width: 20vw;
