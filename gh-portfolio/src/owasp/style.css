@@ -266,6 +266,9 @@ body {
   justify-content: center;
   align-items: flex-start;
   width: 85vw;
+  height: 80vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
   padding: 1rem 0rem;
   border-radius: 25px;
 }
@@ -381,4 +384,8 @@ body {
 }
 .card1, .card2, .card3, .card4{
   border-radius: 25px;
+}
+
+@media screen and (max-width:500px){
+  
 }

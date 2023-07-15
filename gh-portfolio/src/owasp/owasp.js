@@ -2,46 +2,113 @@ import owaspLogo from "../images/owasp-full-black.svg";
 import githubLogo from "../images/github.svg";
 import "./style.css";
 import VanillaTilt from "vanilla-tilt";
-import React, { useEffect, useState } from "react";
+import React, { useEffect,useState } from "react";
+import { useSpring, animated } from "react-spring";
+import { initializeApp } from "firebase/app";
+import { collection, getFirestore, query, getDocs,Timestamp } from "firebase/firestore";
+const firebaseConfig = {
+  apiKey: "AIzaSyCpDCvJCcfv-v6zgSQHJAJW2s2QncXcOrk",
+  authDomain: "intra-society-owasp-hackathon5.firebaseapp.com",
+  projectId: "intra-society-owasp-hackathon5",
+  storageBucket: "intra-society-owasp-hackathon5.appspot.com",
+  messagingSenderId: "297356289241",
+  appId: "1:297356289241:web:8b1cadf97f8ab790710ac8",
+  measurementId: "G-QBJZ2NH9E7"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+function Number({n}){
+  const {number} = useSpring({
+    from: {number: 0},
+    to: {number: n},
+    number: n,
+    delay: 200,
+    config:{mass:1, tension:20, friction:10}
+  })
+  return <animated.div>{number.to(n => n.toFixed(0))}</animated.div>
+}
+
+function createDataNotDisq(
+  name,
+  date,
+  commits,
+  issues,
+  top
+) {
+  return { name, date, commits, issues, top };
+}
 
 export default function Owasp() {
-  // var speed = 15;
+  const [totalCommits, setTotalCommits] = useState(0);
+  const [rows, setRows] = useState([]);
+  const [lastFetchTimestamp, setLastFetchTimestamp] = useState(localStorage.getItem('lastFetchTimestamp') || '');
 
-  // /* Call this function with a string containing the ID name to
-  //  * the element containing the number you want to do a count animation on.*/
-  // const [elt, incElt] = useState(0);
-  // // function incEltNbr(id) {
-  // //   // elt = document.getElementById(id);
-  // //   // endNbr = Number(document.getElementById(id).innerHTML);
+  async function users() {
+    try{
 
-  // const endNbr = 50;
-
-  // // }
-
-  // /*A recursive function to increase the number.*/
-  // function incNbrRec(i, endNbr, elt) {
-  //   if (i <= endNbr) {
-  //     // elt.innerHTML = i;
-      
-  //     useEffect(() => {
-  //       // incNbrRec(0, endNbr, elt);
-  //       incElt(i);
-  //     },[elt]);
-
-  //     setTimeout(function () {
-  //       //Delay a bit before calling the function again.
-  //       incNbrRec(i + 1, endNbr, elt);
-  //     }, speed);
-  //   }
-  // }
+      const currentTime = new Date();
+      const storedTimestamp = lastFetchTimestamp!=='' ? new Date(lastFetchTimestamp) : null;
+      const timeDifference = storedTimestamp!=null ? currentTime.getTime() - storedTimestamp.getTime() : undefined;
+      const firstUse = storedTimestamp==null || timeDifference === undefined; // 35 minutes in milliseconds
+      var querySnapshot;
+      var data;
+      if (firstUse) {
+        const q = query(collection(db, "github"));
+        querySnapshot = await getDocs(q);
+        data = querySnapshot.docs.map((doc) => doc.data());
+        localStorage.setItem('snap', JSON.stringify(data));
+        //  set last fetch timestamp
+        setLastFetchTimestamp(currentTime.toISOString());
+        localStorage.setItem('lastFetchTimestamp', currentTime.toISOString());
+      }else{
+        if(timeDifference>30*60*1000){
+          const q = query(collection(db, "github"));
+          querySnapshot = await getDocs(q);
+          data = querySnapshot.docs.map((doc) => doc.data());
+          localStorage.setItem('snap', JSON.stringify(data));
+          //  set last fetch timestamp
+          setLastFetchTimestamp(currentTime.toISOString());
+          localStorage.setItem('lastFetchTimestamp', currentTime.toISOString());
+          // console.log("data fetched from firestore");
+        }else{
+          data = JSON.parse(localStorage.getItem('snap') || '[]');
+          // console.log("data fetched from local storage");
+        }
+      }
+    const updatedRowsNotDisq=[];
+      data.forEach((doc) => {
+          const repo = doc.name;
+          const commits=doc.commits;
+          const issues=doc.issuesAndPr;
+          const contri=doc.contributors;
+          const sec=doc.date;
+          const fullDate=new Timestamp(sec.seconds,sec.nanoseconds).toDate();
+          const date=fullDate.toString().substring(4,15);
+          
+          updatedRowsNotDisq.push(
+            createDataNotDisq(
+              repo,
+              date,
+              commits,
+              issues,
+              "hello"
+            )
+          );
+          setTotalCommits((prev) => prev + commits);
+  });
+  console.log(updatedRowsNotDisq);
+    updatedRowsNotDisq.sort((a, b) => b.commits - a.commits);
+    setRows(updatedRowsNotDisq);
   
+  }catch (error) {
+    console.error("Failed to fetch user data:", error);
+  }
+}
 
-  // /*Function called on button click*/
-  // // function incNbr(){
-  // //   incEltNbr("nbr");
-  // // }
-
-  // // incEltNbr("nbr"); /*Call this funtion with the ID-name for that element to increase the number within*/
+useEffect(() => {
+  users();
+}, []);
 
   return (
     <>
@@ -82,7 +149,7 @@ export default function Owasp() {
             <path d="M80 104a24 24 0 1 0 0-48 24 24 0 1 0 0 48zm80-24c0 32.8-19.7 61-48 73.3v87.8c18.8-10.9 40.7-17.1 64-17.1h96c35.3 0 64-28.7 64-64v-6.7C307.7 141 288 112.8 288 80c0-44.2 35.8-80 80-80s80 35.8 80 80c0 32.8-19.7 61-48 73.3V160c0 70.7-57.3 128-128 128H176c-35.3 0-64 28.7-64 64v6.7c28.3 12.3 48 40.5 48 73.3c0 44.2-35.8 80-80 80s-80-35.8-80-80c0-32.8 19.7-61 48-73.3V352 153.3C19.7 141 0 112.8 0 80C0 35.8 35.8 0 80 0s80 35.8 80 80zm232 0a24 24 0 1 0 -48 0 24 24 0 1 0 48 0zM80 456a24 24 0 1 0 0-48 24 24 0 1 0 0 48z" />
           </svg>
           <div className="content">
-            <h2>27</h2>
+            <h2><Number n={25}/></h2>
             <h4>Active Projects</h4>
           </div>
         </div>
@@ -98,7 +165,7 @@ export default function Owasp() {
           </svg>
 
           <div className="content">
-            <h2>1036</h2>
+            <h2><Number n={1036}/></h2>
             <h4>Contributors</h4>
           </div>
         </div>
@@ -113,7 +180,7 @@ export default function Owasp() {
             <path d="M320 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160zm156.8-48C462 361 397.4 416 320 416s-142-55-156.8-128H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H163.2C178 151 242.6 96 320 96s142 55 156.8 128H608c17.7 0 32 14.3 32 32s-14.3 32-32 32H476.8z" />
           </svg>
           <div className="content">
-            <h2>15369</h2>
+            <h2><Number n={totalCommits}/></h2>
             <h4>Commits</h4>
           </div>
         </div>
@@ -163,21 +230,15 @@ export default function Owasp() {
               <td>Issues & Pull Requests</td>
               <td>Top Contributor</td>
             </thead>
-
+            {rows.map((row) => (
             <tr>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
+              <td>{row.name}</td>
+              <td>{row.date}</td>
+              <td>{row.commits}</td>
+              <td>{row.issues}</td>
+              <td>{row.top}</td>
             </tr>
-            <tr>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-            </tr>
+            ))}
           </table>
         </div>
       </div>
