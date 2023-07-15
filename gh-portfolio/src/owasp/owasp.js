@@ -1,8 +1,48 @@
 import owaspLogo from "../images/owasp-full-black.svg";
 import githubLogo from "../images/github.svg";
 import "./style.css";
+import VanillaTilt from "vanilla-tilt";
+import React, { useEffect, useState } from "react";
+
 export default function Owasp() {
+  // var speed = 15;
+
+  // /* Call this function with a string containing the ID name to
+  //  * the element containing the number you want to do a count animation on.*/
+  // const [elt, incElt] = useState(0);
+  // // function incEltNbr(id) {
+  // //   // elt = document.getElementById(id);
+  // //   // endNbr = Number(document.getElementById(id).innerHTML);
+
+  // const endNbr = 50;
+
+  // // }
+
+  // /*A recursive function to increase the number.*/
+  // function incNbrRec(i, endNbr, elt) {
+  //   if (i <= endNbr) {
+  //     // elt.innerHTML = i;
+      
+  //     useEffect(() => {
+  //       // incNbrRec(0, endNbr, elt);
+  //       incElt(i);
+  //     },[elt]);
+
+  //     setTimeout(function () {
+  //       //Delay a bit before calling the function again.
+  //       incNbrRec(i + 1, endNbr, elt);
+  //     }, speed);
+  //   }
+  // }
   
+
+  // /*Function called on button click*/
+  // // function incNbr(){
+  // //   incEltNbr("nbr");
+  // // }
+
+  // // incEltNbr("nbr"); /*Call this funtion with the ID-name for that element to increase the number within*/
+
   return (
     <>
       <div className="container">
@@ -87,11 +127,13 @@ export default function Owasp() {
               src="https://avatars.githubusercontent.com/u/2770071?v=4"
               name="IPS"
               contri="1000"
+              cl="card1"
             />
             <ContributorContent
               src="https://avatars.githubusercontent.com/u/2770071?v=4"
               name="MS"
               contri="10000"
+              cl="card2"
             />
           </div>
           <div className="top_contributors_content_2">
@@ -99,13 +141,16 @@ export default function Owasp() {
               src="https://avatars.githubusercontent.com/u/2770071?v=4"
               name="IPS"
               contri="1000"
+              cl="card3"
             />
             <ContributorContent
               src="https://avatars.githubusercontent.com/u/2770071?v=4"
               name="IPS"
               contri="1000"
+              cl="card4"
             />
           </div>
+          <div className="blob"></div>
         </div>
       </div>
       <div className="allprojects">
@@ -118,7 +163,7 @@ export default function Owasp() {
               <td>Issues & Pull Requests</td>
               <td>Top Contributor</td>
             </thead>
-            
+
             <tr>
               <td>1</td>
               <td>1</td>
@@ -145,13 +190,28 @@ export default function Owasp() {
     </>
   );
 }
-function ContributorContent({ src, name, contri }) {
+
+function ContributorContent({ src, name, contri, cl }) {
+  useEffect(() => {
+    VanillaTilt.init(document.querySelector(`.${cl}`), {
+      max: 15,
+      speed: 200,
+      glare: true,
+      "max-glare": 1,
+    });
+  }, [cl]);
+
+  // Component code here
   return (
-    <div className="top_contributors_content_inner">
-      <img src={src} alt="" />
-      <div className="top_contributions_contri_content">
-        <h3>{name}</h3>
-        <h4>Contributions: {contri}</h4>
+    <div className="gfg">
+      <div className={cl}>
+        <div className="top_contributors_content_inner">
+          <img src={src} alt="" />
+          <div className="top_contributions_contri_content">
+            <h3>{name}</h3>
+            <h4>Contributions: {contri}</h4>
+          </div>
+        </div>
       </div>
     </div>
   );
