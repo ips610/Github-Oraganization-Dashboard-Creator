@@ -1,4 +1,3 @@
-import owaspLogo from "../images/owasp-full-black.svg";
 import githubLogo from "../images/github.svg";
 import "./route.css";
 import VanillaTilt from "vanilla-tilt";
