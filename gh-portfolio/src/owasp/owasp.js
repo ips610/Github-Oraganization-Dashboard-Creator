@@ -155,7 +155,7 @@ export default function Owasp() {
   }
 }
 users();
-}, []);
+}, [lastFetchTimestamp]);
 
 const stylebox = {
     position: "absolute",
