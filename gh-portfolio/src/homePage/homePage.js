@@ -1,5 +1,6 @@
 import githubLogo from "../images/github.svg";
-import "./style.css";
+import "../owasp/style.css";
+import "./home.css";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
@@ -26,18 +27,15 @@ export function HomePage() {
           <p id="linetwo" className="headinglines">
             Projects Dashboard
           </p>
+         <div className="login">
           <div className="orgname">
             <Box textAlign="center">
               <TextField
                 id="outlined-basic"
                 label="Organization Name"
                 variant="filled"
-                sx={{
-                  backgroundColor: "whitesmoke",
-                  borderRadius: "20px",
-                  marginTop: "5rem",
-                  width: "30vw",
-                }}
+                className="Textbox"
+                
                 InputProps={{
                   style: {
                     backgroundColor: "white",
@@ -52,26 +50,19 @@ export function HomePage() {
                 }}
               />
             </Box>
-            <Stack>
+            
               <Button
                 variant="contained"
-                sx={{
-                  backgroundColor: "#FF6B34",
-                  borderRadius: "20px",
-                  marginTop: "5rem",
-                  marginLeft: "2rem",
-                  width: "10vw",
-                  height: "7vh",
-                  fontSize: "1.1rem",
-                }}
+                className="Button_login"
+                
                 endIcon={<SendIcon />}
               >
                 Continue
               </Button>
-            </Stack>
+            
           </div>
         </div>
-
+        </div> 
         {/* <div className="image">
           <img src={githubLogo} alt="Github Logo" />
         </div> */}

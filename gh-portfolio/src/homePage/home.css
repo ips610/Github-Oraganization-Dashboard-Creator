@@ -4,26 +4,24 @@
   color: #efefd0;
   font-family: "Figtree", sans-serif;
 }
+
 body {
-  /* background-image: url("../images/layered-waves-haikei.svg");
-    background-repeat: no-repeat;
-    background-size: cover; */
   overflow-x: hidden;
 }
+
 .container {
   display: flex;
   justify-content: center;
   flex-direction: row;
   align-items: flex-start;
-  /* background-color: #efefd0; */
   background-image: url("../images/layered-waves-haikei.svg");
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-color: transparent; */
   flex-wrap: wrap;
   height: 110vh;
   width: 100vw;
 }
+
 .heading {
   display: flex;
   flex-direction: column;
@@ -32,34 +30,35 @@ body {
   justify-content: flex-start;
   align-items: center;
 }
+
 .headinglines {
   font-weight: bold;
   color: #004e89;
-  /* justify-content: flex-start; */
 }
+
 .image {
   height: 25%;
   width: 25%;
-  /* padding: 6rem; */
-  /* margin-top: -20%; */
 }
 
 #lineone {
-  font-size: 8rem;
+  font-size: 8vw;
   font-family: "League Gothic", sans-serif;
   text-shadow: 7px 5px 1px #ff6b34;
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: 0.15em solid orange; /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: 0.15em; /* Adjust as needed */
+  overflow: hidden;
+  border-right: 0.15em solid orange;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.15em;
   animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
 }
-.orgname{
+
+.orgname {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
-/* The typing effect */
+
 @keyframes typing {
   from {
     width: 0;
@@ -69,7 +68,6 @@ body {
   }
 }
 
-/* The typewriter cursor effect */
 @keyframes blink-caret {
   from,
   to {
@@ -79,9 +77,9 @@ body {
     border-color: rgb(250, 114, 104);
   }
 }
+
 #linetwo {
   font-family: "Figtree", sans-serif;
-
   font-size: 4rem;
 }
 
@@ -91,10 +89,8 @@ body {
   justify-content: space-around;
   justify-items: center;
   padding: 10rem;
-  /* padding-top: 50rem; */
   align-items: center;
   margin-top: -25%;
-  /* background: linear-gradient(#efefd0, #002d4f, #00192c); */
   background-color: #c62368;
   z-index: -1;
   position: relative;
@@ -104,14 +100,20 @@ body {
   color: #ffffff;
   height: 100vh;
 }
+.Textbox{
+  background-color: whitesmoke;
+  border-radius: 20px;
+                  margin-top: 5rem;
+                  width: 30vw;
+}
 
 #aboutus_billi_logo {
   width: 30vw;
   height: 30vh;
   fill: white !important;
   box-sizing: border-box;
-  
 }
+
 #aboutusright {
   font-family: "Figtree", sans-serif;
   font-size: 2rem;
@@ -125,7 +127,7 @@ body {
   text-align: justify;
 }
 
-.techstackheading{
+.techstackheading {
   background-image: url("../images/waves3.svg") !important;
   background-repeat: no-repeat;
   background-size: cover;
@@ -136,22 +138,33 @@ body {
   height: 100vh;
   width: 100vw;
 }
-.techstackheading_p{
+
+.techstackheading_p {
   font-family: "League Gothic", sans-serif;
   font-size: 5rem;
   font-weight: bolder;
   padding-bottom: 15rem;
   text-shadow: 5px 5px #c62368;
 }
-.techstack{
+.Button{
+  background-color: #FF6B34;
+                  border-radius: 20px;
+                  margin-top: 5rem;
+                  margin-left: 2rem;
+                  width: 10vw;
+                  height: 7vh;
+                  font-size: 1.1rem;
+}
+
+.techstack {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  
 }
-.tech{
+
+.tech {
   background-color: #0d0d0d;
   border-radius: 25px;
   height: 10rem;
@@ -160,18 +173,17 @@ body {
   justify-content: center;
   align-items: center;
 }
-.techimg{
+
+.techimg {
   height: 7rem;
   width: 7rem;
 }
-
 
 .top_contributors_content_1,
 .top_contributors_content_2 {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-
   margin-top: 5%;
   width: 100%;
 }
@@ -184,10 +196,8 @@ body {
   padding: 2rem;
   background-color: #000214;
   flex-wrap: wrap;
-  /* z-index: -5;
-  position: relative; */
-  /* margin-top: 3rem; */
 }
+
 .top_contributors_content {
   display: flex;
   flex-direction: column;
@@ -197,6 +207,7 @@ body {
   flex-wrap: wrap;
   padding-top: 5rem;
 }
+
 .top_contributors_content_inner {
   font-family: "Figtree", sans-serif;
   background: rgba(193, 167, 167, 0.44);
@@ -205,7 +216,6 @@ body {
   backdrop-filter: blur(8.4px);
   -webkit-backdrop-filter: blur(8.4px);
   border: 1px solid rgba(193, 167, 167, 1);
-  /* border-radius: 25px; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -215,17 +225,20 @@ body {
   flex-wrap: wrap;
   overflow: hidden;
 }
+
 .top_contributors_content_inner > img {
   width: 8rem;
   height: 8rem;
   border-radius: 50%;
 }
+
 .top_contributors > p {
   font-size: 5rem;
   font-family: "League Gothic", sans-serif;
   font-weight: bolder;
   text-shadow: 5px 5px #c62368;
 }
+
 .top_contributions_contri_content {
   display: flex;
   flex-direction: column;
@@ -235,9 +248,11 @@ body {
   font-family: "Figtree", sans-serif;
   z-index: 1;
 }
+
 .top_contributions_contri_content > h3 {
   font-size: 1.5rem;
 }
+
 .top_contributions_contri_content > h4 {
   font-size: 1rem;
 }
@@ -267,26 +282,30 @@ body {
   padding: 1rem 0rem;
   border-radius: 25px;
 }
+
 .allprojects_table > table > thead > td {
   font-size: 1.75rem;
   padding: 1rem 3rem;
   text-align: center;
-  /* margin-top: 10rem; */
 }
+
 .allprojects_table > table > tr > td {
   padding: 2rem 3rem;
   text-align: center;
   font-size: 1.5rem;
 }
+
 .allprojects_table > table > thead {
   border-bottom: 1px solid white;
 }
+
 .footer {
   background-color: #fbad3c;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .footercontent {
   display: flex;
   flex-direction: row;
@@ -360,5 +379,213 @@ body {
   flex-wrap: wrap;
   z-index: 1;
   border-radius: 25px;
-  margin:1.5rem;
+  margin: 1.5rem;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+  .heading {
+    padding: 8rem 4rem;
+  }
+  .aboutus {
+    padding: 6rem;
+  }
+  .aboutusright {
+    font-size: 1.8rem;
+    padding: 2rem;
+  }
+  .top_contributors_content_inner {
+    height: 16rem;
+    width: 16rem;
+  }
+  .top_contributors > p {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heading {
+    padding: 4rem 2rem;
+  }
+  #lineone {
+    font-size: 4vw;
+  }
+  #linetwo {
+    font-size: 2.5rem;
+  }
+  .aboutus {
+    padding: 4rem;
+  }
+  .aboutusright {
+    font-size: 1.5rem;
+    padding: 1.5rem;
+  }
+  .techstackheading_p {
+    font-size: 3rem;
+  }
+  .tech {
+    height: 7rem;
+    width: 7rem;
+  }
+  .top_contributors_content_inner {
+    height: 14rem;
+    width: 14rem;
+  }
+  .top_contributors > p {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .heading {
+    padding: 4rem 1rem;
+  }
+  #lineone {
+    font-size: 4.5vw;
+  }
+  #linetwo {
+    font-size: 2rem;
+  }
+  .aboutus {
+    padding: 3rem;
+  }
+  .aboutusright {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+  .techstackheading_p {
+    font-size: 2.5rem;
+  }
+  .tech {
+    height: 6rem;
+    width: 6rem;
+  }
+  .techimg {
+    height: 4rem;
+    width: 4rem;
+  }
+  .top_contributors_content_inner {
+    height: 12rem;
+    width: 12rem;
+  }
+  .top_contributors > p {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .techstack {
+    overflow-x: scroll;
+  }
+  .heading {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 3rem 0rem;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 0;
+  }
+  #lineone {
+    font-size: 35px;
+    font-family: "League Gothic", sans-serif;
+    text-shadow: 2px 1px 1px #ff6b34;
+    text-align: center;
+    padding-left: 0;
+    overflow: hidden;
+    border-right: 0.15em solid orange;
+    white-space: nowrap;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-left: 8%;
+    margin-right: 12.5%;
+    letter-spacing: 0.15rem;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+  #linetwo {
+    text-align: center;
+    font-size: 15px;
+    padding: 15px;
+    margin-left: -10%;
+  }
+  .Textbox{
+    border-radius: 0px;
+    margin-top: 30px;
+    width:100%; 
+    margin-left: -20%;
+    /* padding-left: 20%; */
+    font-size: 1.1rem !important;
+    
+  }
+  .Button_login{
+    background-color: #FF6B34;
+                    border-radius: 20px;
+                    margin-top:100%;
+                    margin-left: -30px;
+                    margin-bottom: -50%;
+
+                    width: 40%;
+                    height: 60px;
+                    font-size: 10px;
+                    padding-top: 20%;
+  }
+  /* .login{
+    flex-direction: row;
+  } */
+  #aboutus_billi_logo {
+    width: 100%;
+    height: 100%;
+    fill: white !important;
+    z-index: 1;
+    padding-top: 50%;
+    margin-left: -10px;
+  }
+  #aboutusright {
+    font-family: "Figtree", sans-serif;
+    font-size: 20px;
+    text-align: center;
+    margin-top: -50%;
+    
+    
+  }  
+    .aboutus {
+    display: flex;
+    font-size: 12px;
+    flex-direction:   row;
+    /* align-content: center; */
+    justify-content: space-around; 
+    /* justify-items: start ; */
+    flex-wrap: wrap;
+    padding: 15%;
+    /* padding-top: 50rem; */
+    align-items: flex-start;
+    margin-top: -129px;
+    /* background: linear-gradient(#efefd0, #002d4f, #00192c); */
+    background-color: #c62368;
+    z-index: -1;
+    position: relative;
+    background-image: url("../images/layered-waves-haikei_2.svg") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+    height: 100vh;
+
+  }
+  /* #aboutusleft{
+    height:10px;
+    width:10px;
+  } */
+  .orgname {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    height:6rem;
+    margin-top: 2rem;
+  }
+
+
 }
