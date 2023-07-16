@@ -279,15 +279,17 @@ body {
   padding: 1rem 0rem;
   border-radius: 8px;
 }
-.allprojects_table::-webkit-scrollbar{
+.allprojects_table::-webkit-scrollbar {
   width: 13px;
 }
-.allprojects_table::-webkit-scrollbar-thumb{
+.allprojects_table::-webkit-scrollbar-thumb {
   background: #fbad3c;
+  background: transparent;
   border-radius: 50px;
 }
-.allprojects_table::-webkit-scrollbar-track{
+.allprojects_table::-webkit-scrollbar-track {
   background: #77777726;
+  background: transparent;
   border-radius: 25px;
 }
 .allprojects_table > table {
@@ -300,10 +302,20 @@ body {
   text-align: center;
   /* margin-top: 10rem; */
 }
+
 .allprojects_table > table > tr > td {
   padding: 2rem 3rem;
   text-align: center;
   font-size: 1.5rem;
+}
+.allprojects_table > table > tr > td > button {
+  font-size: 1.25rem;
+  font-weight: bolder;
+}
+.allprojects_table > table > tr > td,
+.allprojects_table > table > thead > td,
+.allprojects_table > table > tr > td > button {
+  color: #00192c;
 }
 .allprojects_table > table > thead {
   border-bottom: 1px solid white;
@@ -408,7 +420,7 @@ body {
 .card4 {
   border-radius: 25px;
 }
-@media screen and (max-width:400px){ 
+@media screen and (max-width: 400px) {
   .heading {
     display: flex;
     flex-direction: column;
@@ -417,7 +429,6 @@ body {
     justify-content: flex-start;
     align-items: center;
     margin-left: 0;
-    
   }
   #lineone {
     font-size: 50px;
@@ -426,20 +437,17 @@ body {
     text-align: center;
     padding-left: 5%;
     overflow: hidden; /* Ensures the content is not revealed until the animation */
-    border-right: .15em solid orange; /* The typwriter cursor */
+    border-right: 0.15em solid orange; /* The typwriter cursor */
     white-space: nowrap; /* Keeps the content on a single line */
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     margin-top: 50px;
-    letter-spacing: .15em; /* Adjust as needed */
-    animation: 
-      typing 3.5s steps(40, end),
-      blink-caret .75s step-end infinite;
-  } 
+    letter-spacing: 0.15em; /* Adjust as needed */
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
   #linetwo {
-    
     text-align: center;
     font-size: 30px;
-    padding:15px
+    padding: 15px;
   }
   .image {
     height: 25%;
@@ -448,10 +456,8 @@ body {
     margin: 0;
     margin-left: 40px;
     margin-top: 20px;
-    
-  } 
+  }
   .container {
-    
     flex-direction: column;
     justify-content: flex-start;
     height: 120vh;
@@ -464,16 +470,14 @@ body {
     padding: 5%;
     justify-content: flex-start;
     align-items: center;
-    
-
   }
- 
+
   .aboutus {
     display: flex;
     font-size: 12px;
-    flex-direction:   row;
+    flex-direction: row;
     /* align-content: center; */
-    justify-content: space-around; 
+    justify-content: space-around;
     /* justify-items: start ; */
     flex-wrap: wrap;
     padding: 15%;
@@ -489,22 +493,19 @@ body {
     background-size: cover;
     color: #ffffff;
     height: 100vh;
-
   }
-  .aboutusbox{
+  .aboutusbox {
     margin-top: -15%;
   }
-  #aboutusleft,#aboutusright{
-    padding:5%;
-
+  #aboutusleft,
+  #aboutusright {
+    padding: 5%;
   }
   #aboutusright {
     font-family: "Figtree", sans-serif;
     font-size: 20px;
     text-align: center;
     margin-top: -50%;
-    
-    
   }
   #aboutus_owasp_logo {
     width: 100%;
@@ -542,8 +543,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    justify-items: start;
-    align-content: start;
+    justify-items: flex-start;
+    align-content: flex-start;
     align-items: center;
     padding: 2em;
     margin-top: -20%;
@@ -553,7 +554,7 @@ body {
     width: 90em;
   }
   #stats_two_logo {
-    height:10vh;
+    height: 10vh;
     width: 20vw;
   }
   #stats_three_logo {
@@ -573,65 +574,60 @@ body {
     text-align: justify;
     margin-left: 0;
     padding-left: 0;
-
-  } 
+  }
   .content > h2,
-.content > h4 {
-  color: #efefd0;
-  font-family: "Figtree", sans-serif;
-}
+  .content > h4 {
+    color: #efefd0;
+    font-family: "Figtree", sans-serif;
+  }
 
-.content > h4 {
-  text-align: center;
-  font-size: 15px;
-  margin-top: 2%;
-}
-.top_contributors_content {
-  display: flex;
-  flex-direction: column;
-  justify-content:flex-start;
-  align-items: center;
-  width: 10vw;
-  flex-wrap: wrap;
-  padding-top: 5rem;
-  margin-top: -30%;
-  
-}  
-.top_contributors_content_inner {
-  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  height: 20vh;
-  width: 30vw;
-  flex-wrap: wrap-reverse;
-  overflow: hidden;
-  margin: 30px;
-  
-  margin-bottom: 10px;
-  
-}
-.top_contributors_content_inner > img {
-  width: 10vh;
-  height: 15vw;
-  border-radius: 12.5px;
-}
+  .content > h4 {
+    text-align: center;
+    font-size: 15px;
+    margin-top: 2%;
+  }
+  .top_contributors_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 10vw;
+    flex-wrap: wrap;
+    padding-top: 5rem;
+    margin-top: -30%;
+  }
+  .top_contributors_content_inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 20vh;
+    width: 30vw;
+    flex-wrap: wrap-reverse;
+    overflow: hidden;
+    margin: 30px;
 
-.top_contributions_contri_content > h3 {
-  font-size: 14px;
-}
-.top_contributions_contri_content > h4 {
-  font-size: 12px;
-  text-align: center;
-  
-}
-/* .allprojects_table > table > thead > td {
+    margin-bottom: 10px;
+  }
+  .top_contributors_content_inner > img {
+    width: 10vh;
+    height: 15vw;
+    border-radius: 12.5px;
+  }
+
+  .top_contributions_contri_content > h3 {
+    font-size: 14px;
+  }
+  .top_contributions_contri_content > h4 {
+    font-size: 12px;
+    text-align: center;
+  }
+  /* .allprojects_table > table > thead > td {
   font-size: 10px;
   padding: 1rem 3rem;
   text-align: center;
   /* margin-top: 10rem; */
-/* }
+  /* }
 .allprojects_table > table > tr > td {
   padding: 2rem 3rem;
   text-align: center;
@@ -644,62 +640,56 @@ body {
   width: 85vw;
   padding: 1rem 0rem;
   border-radius: 25px;
-} */ 
-.allprojects_table {
- transform: scale(30%) ;
- width: 350vw;
- margin-top: -85%;
- margin-left: -100%;
- height: 100vh;
- margin-right: -100%;
- padding-right: 20px;
- padding-left: 20px;
- 
- 
+} */
+  .allprojects_table {
+    transform: scale(30%);
+    width: 350vw;
+    margin-top: -85%;
+    margin-left: -100%;
+    height: 100vh;
+    margin-right: -100%;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  .allprojects {
+    background: url("../images/stacked-waves-haikei.svg");
+    width: 100vw;
+    height: 30vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 10rem;
+  }
+  .blob {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(
+      180deg,
+      rgba(47, 184, 255, 0.42) 31.77%,
+      #5c9df1 100%
+    );
+    mix-blend-mode: color-dodge;
+    -webkit-animation: move 25s infinite alternate;
+    animation: move 25s infinite alternate;
+    transition: 1s cubic-bezier(0.07, 0.8, 0.16, 1);
+  }
+  .footercontent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 
+    font-size: 15px;
+    align-items: center;
+    text-align: center;
+    height: 100px;
+    width: 100vw;
+  }
 }
-.allprojects {
-  background: url("../images/stacked-waves-haikei.svg");
-  width: 100vw;
-  height: 30vh;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 10rem;
-
-}
-.blob {
-  position: absolute;
-  width: 250px;
-  height: 250px;
-  background: linear-gradient(
-    180deg,
-    rgba(47, 184, 255, 0.42) 31.77%,
-    #5c9df1 100%
-  );
-  mix-blend-mode: color-dodge;
-  -webkit-animation: move 25s infinite alternate;
-  animation: move 25s infinite alternate;
-  transition: 1s cubic-bezier(0.07, 0.8, 0.16, 1);
-}
-.footercontent {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-
-  font-size: 15px;
-  align-items: center;
-  text-align: center;
-  height: 100px;
-  width: 100vw;
-}
-
-
-}
-@media screen and(min-width:600px) and (max-width:1450px) {
+@media screen and(min-width:600px) and (max-width: 1450px) {
   .stats {
     height: 5vh;
     width: 20px;
@@ -714,7 +704,6 @@ body {
     align-items: center;
     padding: 2em;
     margin-top: 50%;
-    
   }
   .aboutus {
     display: flex;
@@ -735,10 +724,34 @@ body {
     color: #ffffff;
     height: 100vh;
   }
-  .gitstats{
-     height:200vh;
-     margin-top: 90px;
-     justify-content: center;
-     width: 100vw;
+  .gitstats {
+    height: 200vh;
+    margin-top: 90px;
+    justify-content: center;
+    width: 100vw;
   }
 }
+
+.tablebox {
+  text-align: justify;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+}
+.tablebox > tr > th {
+  font-size: 1.6rem;
+  padding: 0.5rem 2rem;
+}
+.tablebox > tr > td {
+  font-size: 1rem;
+  padding: 1rem 2rem;
+}
+.tablebox > tr > .commitsboxtable {
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+.boxcommitstable::-webkit-scrollbar {
+  display: none;
+}
+
