@@ -277,7 +277,22 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
   padding: 1rem 0rem;
+  border-radius: 8px;
+}
+.allprojects_table::-webkit-scrollbar{
+  width: 13px;
+}
+.allprojects_table::-webkit-scrollbar-thumb{
+  background: #fbad3c;
+  border-radius: 50px;
+}
+.allprojects_table::-webkit-scrollbar-track{
+  background: #77777726;
   border-radius: 25px;
+}
+.allprojects_table > table {
+  width: 100%;
+  border-collapse: collapse;
 }
 .allprojects_table > table > thead > td {
   font-size: 1.75rem;

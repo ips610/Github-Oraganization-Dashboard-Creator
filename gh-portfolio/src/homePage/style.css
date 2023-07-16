@@ -159,7 +159,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2rem;
 }
 .techimg{
   height: 7rem;
@@ -358,27 +357,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 1000px;
   flex-wrap: wrap;
   z-index: 1;
   border-radius: 25px;
-}
-
-.gfg .card {
-  position: relative;
-  box-shadow: 20px 20px 50px rgb(0, 0, 0, 0.4);
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.1);
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  backdrop-filter: blur(6px);
-  border-radius: 25px;
-}
-.card1,
-.card2,
-.card3,
-.card4 {
-  border-radius: 25px;
+  margin:1.5rem;
 }

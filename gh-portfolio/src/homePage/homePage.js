@@ -12,6 +12,8 @@ import jslogo from "../images/js.png";
 import nodejslogo from "../images/nodejs.png";
 import reactlogo from "../images/react.png";
 import firebaselogo from "../images/firebase.png";
+import { useEffect } from "react";
+import VanillaTilt from "vanilla-tilt";
 
 export function HomePage() {
   return (
@@ -90,27 +92,13 @@ export function HomePage() {
         
         <p className="techstackheading_p">Technologies Used</p>
         <div className="techstack">
-          <div className="tech">
-            <img src={pythonlogo} alt="Python Logo" className="techimg" />
-          </div>
-          <div className="tech">
-            <img src={htmllogo} alt="HTML Logo" className="techimg" />
-          </div>
-          <div className="tech">
-            <img src={csslogo} alt="CSS Logo" className="techimg" />
-          </div>
-          <div className="tech">
-            <img src={jslogo} alt="JS Logo" className="techimg" />
-          </div>
-          <div className="tech">
-            <img src={nodejslogo} alt="NodeJS Logo" className="techimg" />
-          </div>
-          <div className="tech">
-            <img src={reactlogo} alt="React Logo" className="techimg" />
-          </div>
-          <div className="tech">
-            <img src={firebaselogo} alt="Firebase Logo" className="techimg" />
-          </div>
+          <Tech source={pythonlogo} al="Python Logo" cl='card1'/>
+          <Tech source={htmllogo} al="HTML Logo" cl='card2'/>
+          <Tech source={csslogo} al="CSS Logo"cl='card3'/>
+          <Tech source={jslogo} al="JS Logo"cl='card4'/>
+          <Tech source={nodejslogo} al="NodeJS Logo"cl='card5'/>
+          <Tech source={reactlogo} al="React Logo"cl='card6'/>
+          <Tech source={firebaselogo} al="Firebase Logo"cl='card7'/>
           <div className="blob"></div>
         </div>
       </div>
@@ -184,5 +172,25 @@ export function HomePage() {
         </div>
       </div>
     </>
+  );
+}
+
+function Tech({source,al,cl}){
+  useEffect(() => {
+    VanillaTilt.init(document.querySelector(`.${cl}`), {
+      max: 15,
+      speed: 200,
+      glare: true,
+      "max-glare": 1,
+    });
+  }, [cl]);
+  return (
+    <div className="gfg">
+      <div className={cl} style={{position: 'relative',boxShadow: '20px 20px 50px rgb(0, 0, 0, 0.4)',borderRadius: '25px',background: 'rgba(255, 255, 255, 0.1)',overflow: 'hidden',display: 'flex',justifyContent: 'center',alignItems: 'center',backdropFilter: 'blur(6px)'}}>
+      <div className="tech">
+        <img src={source} alt={al} className="techimg" />
+      </div>
+      </div>
+    </div>
   );
 }
