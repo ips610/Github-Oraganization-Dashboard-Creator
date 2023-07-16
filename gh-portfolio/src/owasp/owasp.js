@@ -6,6 +6,12 @@ import React, { useEffect,useState } from "react";
 import { useSpring, animated } from "react-spring";
 import { initializeApp } from "firebase/app";
 import { collection, getFirestore, query, getDocs,Timestamp } from "firebase/firestore";
+import Button from '@mui/material/Button';
+import Modal from '@mui/material/Modal';
+import Fade from '@mui/material/Fade';
+import Backdrop from '@mui/material/Backdrop';
+import Box from '@mui/material/Box';
+
 const firebaseConfig = {
   apiKey: "AIzaSyCpDCvJCcfv-v6zgSQHJAJW2s2QncXcOrk",
   authDomain: "intra-society-owasp-hackathon5.firebaseapp.com",
@@ -41,10 +47,30 @@ function createDataNotDisq(
 
 export default function Owasp() {
   const [totalCommits, setTotalCommits] = useState(0);
+  const [totalProjects, setTotalProjects] = useState(0);
+  const [totalContri, setTotalContri] = useState(0);
   const [rows, setRows] = useState([]);
+  const [modal, setmodal] = useState([]);
   const [lastFetchTimestamp, setLastFetchTimestamp] = useState(localStorage.getItem('lastFetchTimestamp') || '');
+  const [open, setOpen] = React.useState(false);
+  function handleOpen (row) {
+    let update=[];
+    for(let i=0;i<rows.length;i++){
+      if(rows[i].name===row){
+        for(let j=0;j<rows[i].top.length;j++){
+          update.push(rows[i].top[j]);
+        }
+        break;
+      }
+    }
+    setmodal(update);
+    setOpen(true)
+  };
+  const handleClose = () => setOpen(false);
 
-  async function users() {
+
+useEffect(() => {
+  async function users () {
     try{
 
       const currentTime = new Date();
@@ -76,12 +102,19 @@ export default function Owasp() {
           // console.log("data fetched from local storage");
         }
       }
+      let totalCommits=0;
+      let totalProjects=0;
+      let totalcon=0;
     const updatedRowsNotDisq=[];
       data.forEach((doc) => {
           const repo = doc.name;
           const commits=doc.commits;
           const issues=doc.issuesAndPr;
           const contri=doc.contributors;
+          const topcontri=[];
+          for(let i=0;i<contri.length;i++){
+            topcontri.push(contri[i].name);
+          }
           const sec=doc.date;
           const fullDate=new Timestamp(sec.seconds,sec.nanoseconds).toDate();
           const date=fullDate.toString().substring(4,15);
@@ -92,26 +125,69 @@ export default function Owasp() {
               date,
               commits,
               issues,
-              "hello"
+              contri
             )
           );
-          setTotalCommits((prev) => prev + commits);
+          totalCommits+=commits;
+          totalProjects+=1;
+          totalcon+=contri.length;
   });
-  console.log(updatedRowsNotDisq);
     updatedRowsNotDisq.sort((a, b) => b.commits - a.commits);
     setRows(updatedRowsNotDisq);
+    setTotalCommits(totalCommits);
+    setTotalProjects(totalProjects);
+    setTotalContri(totalcon);
   
   }catch (error) {
     console.error("Failed to fetch user data:", error);
   }
 }
-
-useEffect(() => {
-  users();
+users();
 }, []);
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'black',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
   return (
     <>
+    <Modal open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        closeAfterTransition
+        slots={{ backdrop: Backdrop }}
+        slotProps={{
+          backdrop: {
+            timeout: 200,
+          },
+        }} >
+      <Fade in={open}>
+        <Box sx={style} height='50vh'>
+          <table>
+            <tr>
+              <th>Contributor</th>
+              <th>Commits</th>
+            </tr>
+            {modal.map((contr) => (
+              <tr>
+                <td>{contr.name}</td>
+                <td>{contr.commits}</td>
+              </tr>
+            ))}
+
+          </table>
+        </Box>
+      </Fade>
+    </Modal>
       <div className="container">
         <div className="heading">
           <p id="lineone" className="headinglines">
@@ -149,7 +225,7 @@ useEffect(() => {
             <path d="M80 104a24 24 0 1 0 0-48 24 24 0 1 0 0 48zm80-24c0 32.8-19.7 61-48 73.3v87.8c18.8-10.9 40.7-17.1 64-17.1h96c35.3 0 64-28.7 64-64v-6.7C307.7 141 288 112.8 288 80c0-44.2 35.8-80 80-80s80 35.8 80 80c0 32.8-19.7 61-48 73.3V160c0 70.7-57.3 128-128 128H176c-35.3 0-64 28.7-64 64v6.7c28.3 12.3 48 40.5 48 73.3c0 44.2-35.8 80-80 80s-80-35.8-80-80c0-32.8 19.7-61 48-73.3V352 153.3C19.7 141 0 112.8 0 80C0 35.8 35.8 0 80 0s80 35.8 80 80zm232 0a24 24 0 1 0 -48 0 24 24 0 1 0 48 0zM80 456a24 24 0 1 0 0-48 24 24 0 1 0 0 48z" />
           </svg>
           <div className="content">
-            <h2><Number n={25}/></h2>
+            <h2><Number n={totalProjects}/></h2>
             <h4>Active Projects</h4>
           </div>
         </div>
@@ -165,7 +241,7 @@ useEffect(() => {
           </svg>
 
           <div className="content">
-            <h2><Number n={1036}/></h2>
+            <h2><Number n={totalContri}/></h2>
             <h4>Contributors</h4>
           </div>
         </div>
@@ -228,7 +304,7 @@ useEffect(() => {
               <td>Started On</td>
               <td>Commits</td>
               <td>Issues & Pull Requests</td>
-              <td>Top Contributor</td>
+              <td>Contributor</td>
             </thead>
             {rows.map((row) => (
             <tr>
@@ -236,7 +312,7 @@ useEffect(() => {
               <td>{row.date}</td>
               <td>{row.commits}</td>
               <td>{row.issues}</td>
-              <td>{row.top}</td>
+              <td><Button onClick={()=>{handleOpen(row.name)}}>yo</Button></td>
             </tr>
             ))}
           </table>
