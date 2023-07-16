@@ -158,7 +158,7 @@ export default function Routing() {
   }
 }
 users();
-}, []);
+}, [lastFetchTimestamp,org]);
 
 const stylebox = {
     position: "absolute",
@@ -387,119 +387,22 @@ function ContributorContent({ src, name, contri, cl }) {
   );
 }
 
-function ShowContriContent({top}){
-  if(top.length===3){
-    return (
-      <>
-    <div className="top_contributors_content_1">
+function ShowContriContent({ top }) {
+  const contributors = top.slice(0, 4); // Limit the number of contributors to 4
+
+  const renderContributors = contributors.map((contributor, index) => (
     <ContributorContent
-      src={top[0].avatar}
-      name={top[0].name}
-      contri={top[0].commits}
-      cl="card1"
+      key={`contributor-${index}`}
+      src={contributor.avatar}
+      name={contributor.name}
+      contri={contributor.commits}
+      cl={`card${index + 1}`}
     />
-    <ContributorContent
-      src={top[1].avatar}
-      name={top[1].name}
-      contri={top[1].commits}
-      cl="card2"
-    />
-  </div>
-  <div className="top_contributors_content_2">
-    <ContributorContent
-      src={top[2].avatar}
-      name={top[2].name}
-      contri={top[2].commits}
-      cl="card3"
-    />
-  </div>
-    </>);
-  }else if(top.length===2){
-    return (
-      <>
-    <div className="top_contributors_content_1">
-    <ContributorContent
-      src={top[0].avatar}
-      name={top[0].name}
-      contri={top[0].commits}
-      cl="card1"
-    />
-    <ContributorContent
-      src={top[1].avatar}
-      name={top[1].name}
-      contri={top[1].commits}
-      cl="card2"
-    />
-  </div>
-</>);
-  }
-  else if(top.length===1){
-    return (
-      <>
-    <div className="top_contributors_content_1">
-    <ContributorContent
-      src={top[0].avatar}
-      name={top[0].name}
-      contri={top[0].commits}
-      cl="card1"
-    />
-  </div>
-</>);
-  }else if(top.length===0){
-    return (
-      <>
-    <div className="top_contributors_content_1">
-  </div>
-</>);
-  }else if(top.length === 4){
-    <>
-    <div className="top_contributors_content_1">
-    <ContributorContent
-      src={top[0].avatar}
-      name={top[0].name}
-      contri={top[0].commits}
-      cl="card1"
-    />
-    <ContributorContent
-      src={top[1].avatar}
-      name={top[1].name}
-      contri={top[1].commits}
-      cl="card2"
-    />
-  </div>
-  <div className="top_contributors_content_2">
-    <ContributorContent
-      src={top[2].avatar}
-      name={top[2].name}
-      contri={top[2].commits}
-      cl="card3"
-    />
-    <ContributorContent
-              src={top[3].avatar}
-              name={top[3].name}
-              contri={top[3].commits}
-              cl="card4"
-            />
-  </div>
-    </>
-  }else{
-    return (
-      <>
-    <div className="top_contributors_content_1">
-    <ContributorContent
-      src="Test"
-      name="test"
-      contri={0}
-      cl="card1"
-    />
-    <ContributorContent
-      src="Test"
-      name="Test"
-      contri={0}
-      cl="card2"
-    />
-  </div>
-  </>
-    );
-  }
+  ));
+
+  return (
+    <div className="top_contributors_content">
+      {renderContributors}
+    </div>
+  );
 }
