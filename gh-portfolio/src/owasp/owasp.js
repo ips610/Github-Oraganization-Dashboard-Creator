@@ -11,6 +11,7 @@ import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
+import {ProgressBar} from "react-loader-spinner";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCpDCvJCcfv-v6zgSQHJAJW2s2QncXcOrk",
@@ -32,7 +33,7 @@ function Number({n}){
     delay: 200,
     config:{mass:1, tension:20, friction:10}
   })
-  return <animated.div>{number.to(n => n.toFixed(0))}</animated.div>
+  return <animated.div style={{marginLeft:'10px'}}>{number.to(n => n.toFixed(0))}</animated.div>
 }
 
 function createDataNotDisq(
@@ -50,9 +51,11 @@ export default function Owasp() {
   const [totalProjects, setTotalProjects] = useState(0);
   const [totalContri, setTotalContri] = useState(0);
   const [rows, setRows] = useState([]);
+  const [topper, setTopper] = useState([]);
   const [modal, setmodal] = useState([]);
   const [lastFetchTimestamp, setLastFetchTimestamp] = useState(localStorage.getItem('lastFetchTimestamp') || '');
   const [open, setOpen] = React.useState(false);
+  const [loading, setLoading] = useState(true);
   function handleOpen (row) {
     let update=[];
     for(let i=0;i<rows.length;i++){
@@ -105,20 +108,31 @@ useEffect(() => {
       let totalCommits=0;
       let totalProjects=0;
       let totalcon=0;
+      let contrib=[];
     const updatedRowsNotDisq=[];
       data.forEach((doc) => {
           const repo = doc.name;
           const commits=doc.commits;
           const issues=doc.issuesAndPr;
           const contri=doc.contributors;
-          const topcontri=[];
-          for(let i=0;i<contri.length;i++){
-            topcontri.push(contri[i].name);
-          }
           const sec=doc.date;
           const fullDate=new Timestamp(sec.seconds,sec.nanoseconds).toDate();
           const date=fullDate.toString().substring(4,15);
-          
+          if(contrib.length===0){
+            contrib=contri;
+          }else{
+            for(let i=0;i<contri.length;i++){
+              for(let j=0;j<contrib.length;j++){
+                if(contri[i].name===contrib[j].name){
+                  contrib[j].commits+=contri[i].commits;
+                  break;
+                }
+                if(j===contrib.length-1){
+                  contrib.push(contri[i]);
+                }
+              }
+            }
+          }
           updatedRowsNotDisq.push(
             createDataNotDisq(
               repo,
@@ -137,7 +151,9 @@ useEffect(() => {
     setTotalCommits(totalCommits);
     setTotalProjects(totalProjects);
     setTotalContri(totalcon);
-  
+    contrib.sort((a, b) => b.commits - a.commits);
+    setTopper(contrib);
+    setLoading(false);
   }catch (error) {
     console.error("Failed to fetch user data:", error);
   }
@@ -156,6 +172,19 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
+console.log(topper);
+  if(loading){
+    return(
+      <div className="container">
+        <div className="heading">
+          <p id="heading">OWASP</p>
+        </div>
+        <div className="loader">
+          <ProgressBar animated now={100} />
+        </div>
+      </div>
+    )
+  }
 
   return (
     <>
@@ -267,29 +296,29 @@ const style = {
         <div className="top_contributors_content">
           <div className="top_contributors_content_1">
             <ContributorContent
-              src="https://avatars.githubusercontent.com/u/2770071?v=4"
-              name="IPS"
-              contri="1000"
+              src={topper[0].avatar}
+              name={topper[0].name}
+              contri={topper[0].commits}
               cl="card1"
             />
             <ContributorContent
-              src="https://avatars.githubusercontent.com/u/2770071?v=4"
-              name="MS"
-              contri="10000"
+              src={topper[1].avatar}
+              name={topper[1].name}
+              contri={topper[1].commits}
               cl="card2"
             />
           </div>
           <div className="top_contributors_content_2">
             <ContributorContent
-              src="https://avatars.githubusercontent.com/u/2770071?v=4"
-              name="IPS"
-              contri="1000"
+              src={topper[2].avatar}
+              name={topper[2].name}
+              contri={topper[2].commits}
               cl="card3"
             />
             <ContributorContent
-              src="https://avatars.githubusercontent.com/u/2770071?v=4"
-              name="IPS"
-              contri="1000"
+              src={topper[3].avatar}
+              name={topper[3].name}
+              contri={topper[3].commits}
               cl="card4"
             />
           </div>
@@ -340,16 +369,18 @@ function ContributorContent({ src, name, contri, cl }) {
 
   // Component code here
   return (
+    <a href={`https://github.com/${name}`} target="_blank" rel="noreferrer" style={{textDecoration:'none'}}>
     <div className="gfg">
       <div className={cl}>
         <div className="top_contributors_content_inner">
           <img src={src} alt="" />
           <div className="top_contributions_contri_content">
             <h3>{name}</h3>
-            <h4>Contributions: {contri}</h4>
+            <h4 style={{display:'flex',flexDirection:'row'}}>Contributions: <Number n={contri}/></h4>
           </div>
         </div>
       </div>
     </div>
+    </a>
   );
 }
