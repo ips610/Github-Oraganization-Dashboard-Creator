@@ -104,7 +104,7 @@ export function HomePage() {
       </div>
 
       <div className="top_contributors">
-        <p>Top Contributors</p>
+        <p>Need</p>
         <div className="top_contributors_content">
           <div className="top_contributors_content_1">
             {/* <ContributorContent
