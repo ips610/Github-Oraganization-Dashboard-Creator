@@ -1,0 +1,757 @@
+* {
+  padding: 0;
+  margin: 0;
+  color: #efefd0;
+  font-family: "Figtree", sans-serif;
+}
+body {
+  /* background-image: url("../images/layered-waves-haikei.svg");
+    background-repeat: no-repeat;
+    background-size: cover; */
+  overflow-x: hidden;
+}
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  /* background-color: #efefd0; */
+  background-image: url("../images/layered-waves-haikei.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-color: transparent; */
+  flex-wrap: wrap;
+  height: 110vh;
+  width: 100vw;
+}
+.heading {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 13rem 6rem;
+  justify-content: flex-start;
+  align-items: center;
+}
+.headinglines {
+  font-weight: bold;
+  color: #004e89;
+  /* justify-content: flex-start; */
+}
+.image {
+  height: 25%;
+  width: 25%;
+  padding: 6rem;
+}
+
+#lineone {
+  font-size: 8rem;
+  font-family: "League Gothic", sans-serif;
+  text-shadow: 7px 5px 1px #ff6b34;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 0.15em; /* Adjust as needed */
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: rgb(250, 114, 104);
+  }
+}
+#linetwo {
+  font-family: "Figtree", sans-serif;
+
+  font-size: 4rem;
+}
+.aboutus {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  justify-items: center;
+  padding: 10rem;
+  /* padding-top: 50rem; */
+  align-items: center;
+  margin-top: -25%;
+  /* background: linear-gradient(#efefd0, #002d4f, #00192c); */
+  background-color: #c62368;
+  z-index: -1;
+  position: relative;
+  background-image: url("../images/layered-waves-haikei_2.svg") !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #ffffff;
+  height: 100vh;
+}
+
+#aboutus_owasp_logo {
+  width: 70%;
+  height: 70%;
+  fill: white !important;
+}
+#aboutusright {
+  font-family: "Figtree", sans-serif;
+  font-size: 2rem;
+}
+.gitstats {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10rem;
+  background-color: #00192c;
+  position: relative;
+  z-index: -1;
+  /* background-color: transparent; */
+  background-image: url("../images/waves3.svg") !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: -3;
+  margin-top: -25%;
+  height: 100vh;
+}
+.stats {
+  height: 320px;
+  width: 320px;
+  border-radius: 40px;
+  background-color: #0d0d0d;
+  /* background-color: #d4d4d4; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  justify-items: stretch;
+  align-items: center;
+  padding: 2em;
+  margin-top: 80px;
+}
+#stats_one_logo {
+  height: 8em;
+  width: 8em;
+}
+#stats_two_logo {
+  height: 10em;
+  width: 10em;
+}
+#stats_three_logo {
+  height: 9em;
+  width: 9em;
+}
+.statssvg {
+  fill: #efefd0 !important;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 40px;
+  margin-top: 10%;
+}
+
+.content > h2,
+.content > h4 {
+  color: #efefd0;
+  font-family: "Figtree", sans-serif;
+}
+
+.content > h4 {
+  font-size: 30px;
+  margin-top: 2%;
+}
+
+.top_contributors_content_1,
+.top_contributors_content_2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  margin-top: 5%;
+  width: 100%;
+}
+
+.top_contributors {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2rem;
+  background-color: #000214;
+  flex-wrap: wrap;
+  /* z-index: -5;
+  position: relative; */
+  /* margin-top: 3rem; */
+}
+.top_contributors_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  flex-wrap: wrap;
+  padding-top: 5rem;
+}
+.top_contributors_content_inner {
+  font-family: "Figtree", sans-serif;
+  background: rgba(193, 167, 167, 0.44);
+  border-radius: 25px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.4px);
+  -webkit-backdrop-filter: blur(8.4px);
+  border: 1px solid rgba(193, 167, 167, 1);
+  /* border-radius: 25px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 20rem;
+  width: 20rem;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+.top_contributors_content_inner > img {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+}
+.top_contributors > p {
+  font-size: 5rem;
+  font-family: "League Gothic", sans-serif;
+  font-weight: bolder;
+  text-shadow: 5px 5px #c62368;
+}
+.top_contributions_contri_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: "Figtree", sans-serif;
+  z-index: 1;
+}
+.top_contributions_contri_content > h3 {
+  font-size: 1.5rem;
+}
+.top_contributions_contri_content > h4 {
+  font-size: 1rem;
+}
+
+.allprojects {
+  background: url("../images/stacked-waves-haikei.svg");
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 10rem;
+}
+
+.allprojects_table {
+  background: rgba(255, 255, 255, 0.27);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.5px);
+  -webkit-backdrop-filter: blur(5.5px);
+  border: 2px solid rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 85vw;
+  height: 80vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 1rem 0rem;
+  border-radius: 8px;
+}
+.allprojects_table::-webkit-scrollbar {
+  width: 13px;
+}
+.allprojects_table::-webkit-scrollbar-thumb {
+  background: #fbad3c;
+  background: transparent;
+  border-radius: 50px;
+}
+.allprojects_table::-webkit-scrollbar-track {
+  background: #77777726;
+  background: transparent;
+  border-radius: 25px;
+}
+.allprojects_table > table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.allprojects_table > table > thead > td {
+  font-size: 1.75rem;
+  padding: 1rem 3rem;
+  text-align: center;
+  /* margin-top: 10rem; */
+}
+
+.allprojects_table > table > tr > td {
+  padding: 2rem 3rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+.allprojects_table > table > tr > td > button {
+  font-size: 1.25rem;
+  font-weight: bolder;
+}
+.allprojects_table > table > tr > td,
+.allprojects_table > table > thead > td,
+.allprojects_table > table > tr > td > button {
+  color: #00192c;
+}
+.allprojects_table > table > thead {
+  border-bottom: 1px solid white;
+}
+.footer {
+  background-color: #fbad3c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footercontent {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background: rgba(0, 0, 0, 0.56);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+  border: 1px solid rgba(0, 0, 0, 1);
+  font-size: 1.5rem;
+  align-items: center;
+  height: 200px;
+  width: 100vw;
+}
+
+.blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(
+    180deg,
+    rgba(47, 184, 255, 0.42) 31.77%,
+    #5c9df1 100%
+  );
+  mix-blend-mode: color-dodge;
+  -webkit-animation: move 25s infinite alternate;
+  animation: move 25s infinite alternate;
+  transition: 1s cubic-bezier(0.07, 0.8, 0.16, 1);
+}
+
+.blob:hover {
+  width: 520px;
+  height: 520px;
+  -webkit-filter: blur(30px);
+  filter: blur(30px);
+  box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.6),
+    inset 100px 100px 0 0px #fa709a, inset 200px 200px 0 0px #784ba8,
+    inset 300px 300px 0 0px #2b86c5;
+}
+
+@-webkit-keyframes move {
+  from {
+    transform: translate(-500px, -50px) rotate(-90deg);
+    border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+  }
+
+  to {
+    transform: translate(500px, 100px) rotate(-10deg);
+    border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+  }
+}
+
+@keyframes move {
+  from {
+    transform: translate(-500px, -50px) rotate(-90deg);
+    border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+  }
+
+  to {
+    transform: translate(500px, 100px) rotate(-10deg);
+    border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+  }
+}
+
+.gfg {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1000px;
+  flex-wrap: wrap;
+  z-index: 1;
+  border-radius: 25px;
+}
+
+.gfg .card {
+  position: relative;
+  box-shadow: 20px 20px 50px rgb(0, 0, 0, 0.4);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(6px);
+  border-radius: 25px;
+}
+.card1,
+.card2,
+.card3,
+.card4 {
+  border-radius: 25px;
+}
+@media screen and (max-width: 400px) {
+  .heading {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 3rem 2rem;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 0;
+  }
+  #lineone {
+    font-size: 50px;
+    font-family: "League Gothic", sans-serif;
+    text-shadow: 3px 2px 1px #ff6b34;
+    text-align: center;
+    padding-left: 5%;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: 0.15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    margin-top: 50px;
+    letter-spacing: 0.15em; /* Adjust as needed */
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+  #linetwo {
+    text-align: center;
+    font-size: 30px;
+    padding: 15px;
+  }
+  .image {
+    height: 25%;
+    width: 25%;
+    padding-top: 0;
+    margin: 0;
+    margin-left: 40px;
+    margin-top: 20px;
+  }
+  .container {
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 120vh;
+    margin-bottom: -20px;
+  }
+  .heading {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 5%;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .aboutus {
+    display: flex;
+    font-size: 12px;
+    flex-direction: row;
+    /* align-content: center; */
+    justify-content: space-around;
+    /* justify-items: start ; */
+    flex-wrap: wrap;
+    padding: 15%;
+    /* padding-top: 50rem; */
+    align-items: flex-start;
+    margin-top: -129px;
+    /* background: linear-gradient(#efefd0, #002d4f, #00192c); */
+    background-color: #c62368;
+    z-index: -1;
+    position: relative;
+    background-image: url("../images/layered-waves-haikei_2.svg") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+    height: 100vh;
+  }
+  .aboutusbox {
+    margin-top: -15%;
+  }
+  #aboutusleft,
+  #aboutusright {
+    padding: 5%;
+  }
+  #aboutusright {
+    font-family: "Figtree", sans-serif;
+    font-size: 20px;
+    text-align: center;
+    margin-top: -50%;
+  }
+  #aboutus_owasp_logo {
+    width: 100%;
+    height: 100%;
+    fill: white !important;
+    z-index: 1;
+    padding-top: 50%;
+    margin-left: -10px;
+  }
+  .gitstats {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 6rem;
+    background-color: #00192c;
+    position: relative;
+    z-index: -1;
+    /* background-color: transparent; */
+    background-image: url("../images/waves3.svg") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: -3;
+    margin-top: -25%;
+    height: 100vh;
+  }
+  .stats {
+    height: 15vh;
+    width: 30vw;
+    border-radius: 40px;
+    background-color: #0d0d0d;
+    /* background-color: #d4d4d4; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    justify-items: flex-start;
+    align-content: flex-start;
+    align-items: center;
+    padding: 2em;
+    margin-top: -20%;
+  }
+  #stats_one_logo {
+    height: 90em;
+    width: 90em;
+  }
+  #stats_two_logo {
+    height: 10vh;
+    width: 20vw;
+  }
+  #stats_three_logo {
+    height: 20vh;
+    width: 20vw;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+    margin-top: 10%;
+  }
+  .top_contributors > p {
+    font-size: 20px;
+    text-shadow: 2px 2px #c62368;
+    text-align: justify;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .content > h2,
+  .content > h4 {
+    color: #efefd0;
+    font-family: "Figtree", sans-serif;
+  }
+
+  .content > h4 {
+    text-align: center;
+    font-size: 15px;
+    margin-top: 2%;
+  }
+  .top_contributors_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 10vw;
+    flex-wrap: wrap;
+    padding-top: 5rem;
+    margin-top: -30%;
+  }
+  .top_contributors_content_inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 20vh;
+    width: 30vw;
+    flex-wrap: wrap-reverse;
+    overflow: hidden;
+    margin: 30px;
+
+    margin-bottom: 10px;
+  }
+  .top_contributors_content_inner > img {
+    width: 10vh;
+    height: 15vw;
+    border-radius: 12.5px;
+  }
+
+  .top_contributions_contri_content > h3 {
+    font-size: 14px;
+  }
+  .top_contributions_contri_content > h4 {
+    font-size: 12px;
+    text-align: center;
+  }
+  /* .allprojects_table > table > thead > td {
+  font-size: 10px;
+  padding: 1rem 3rem;
+  text-align: center;
+  /* margin-top: 10rem; */
+  /* }
+.allprojects_table > table > tr > td {
+  padding: 2rem 3rem;
+  text-align: center;
+  font-size: 10px;
+}
+.allprojects_table {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 85vw;
+  padding: 1rem 0rem;
+  border-radius: 25px;
+} */
+  .allprojects_table {
+    transform: scale(30%);
+    width: 350vw;
+    margin-top: -85%;
+    margin-left: -100%;
+    height: 100vh;
+    margin-right: -100%;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  .allprojects {
+    background: url("../images/stacked-waves-haikei.svg");
+    width: 100vw;
+    height: 30vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 10rem;
+  }
+  .blob {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(
+      180deg,
+      rgba(47, 184, 255, 0.42) 31.77%,
+      #5c9df1 100%
+    );
+    mix-blend-mode: color-dodge;
+    -webkit-animation: move 25s infinite alternate;
+    animation: move 25s infinite alternate;
+    transition: 1s cubic-bezier(0.07, 0.8, 0.16, 1);
+  }
+  .footercontent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    font-size: 15px;
+    align-items: center;
+    text-align: center;
+    height: 100px;
+    width: 100vw;
+  }
+}
+@media screen and(min-width:600px) and (max-width: 1450px) {
+  .stats {
+    height: 5vh;
+    width: 20px;
+    border-radius: 40px;
+    background-color: #0d0d0d;
+    /* background-color: #d4d4d4; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    justify-items: start;
+    align-content: start;
+    align-items: center;
+    padding: 2em;
+    margin-top: 50%;
+  }
+  .aboutus {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    justify-items: center;
+    padding: 10rem;
+    /* padding-top: 50rem; */
+    align-items: center;
+    margin-top: -25%;
+    /* background: linear-gradient(#efefd0, #002d4f, #00192c); */
+    background-color: #c62368;
+    z-index: -1;
+    position: relative;
+    background-image: url("../images/layered-waves-haikei_2.svg") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+    height: 100vh;
+  }
+  .gitstats {
+    height: 200vh;
+    margin-top: 90px;
+    justify-content: center;
+    width: 100vw;
+  }
+}
+
+.tablebox {
+  text-align: justify;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+}
+.tablebox > tr > th {
+  font-size: 1.6rem;
+  padding: 0.5rem 2rem;
+}
+.tablebox > tr > td {
+  font-size: 1rem;
+  padding: 1rem 2rem;
+}
+.tablebox > tr > .commitsboxtable {
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+.boxcommitstable::-webkit-scrollbar {
+  display: none;
+}
+
