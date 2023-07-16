@@ -542,8 +542,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    justify-items: start;
-    align-content: start;
+    justify-items: flex-start;
+    align-content: flex-start;
     align-items: center;
     padding: 2em;
     margin-top: -20%;
