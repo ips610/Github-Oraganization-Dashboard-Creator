@@ -100,11 +100,11 @@ body {
   color: #ffffff;
   height: 100vh;
 }
-.Textbox{
+.Textbox {
   background-color: whitesmoke;
   border-radius: 20px;
-                  margin-top: 5rem;
-                  width: 30vw;
+  margin-top: 5rem;
+  width: 30vw;
 }
 
 #aboutus_billi_logo {
@@ -146,14 +146,14 @@ body {
   padding-bottom: 15rem;
   text-shadow: 5px 5px #c62368;
 }
-.Button{
-  background-color: #FF6B34;
-                  border-radius: 20px;
-                  margin-top: 5rem;
-                  margin-left: 2rem;
-                  width: 10vw;
-                  height: 7vh;
-                  font-size: 1.1rem;
+.Button_login {
+  background-color: #ff6b34;
+  border-radius: 20px;
+  margin-top: 5rem;
+  /* padding: 2rem; */
+  width: 10vw;
+  height: 7vh;
+  font-size: 1.1rem;
 }
 
 .techstack {
@@ -270,11 +270,12 @@ body {
 }
 
 .allprojects_table {
-  background: rgba(255, 255, 255, 0.27);
+  background: rgba(255, 255, 255, 0.64);
+  border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5.5px);
-  -webkit-backdrop-filter: blur(5.5px);
-  border: 2px solid rgba(255, 255, 255, 1);
+  backdrop-filter: blur(8.9px);
+  -webkit-backdrop-filter: blur(8.9px);
+  border: 1px solid rgba(255, 255, 255, 1);
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -283,20 +284,11 @@ body {
   border-radius: 25px;
 }
 
-.allprojects_table > table > thead > td {
+.allprojects_table > p, .allprojects_table > p > b {
   font-size: 1.75rem;
-  padding: 1rem 3rem;
-  text-align: center;
-}
-
-.allprojects_table > table > tr > td {
-  padding: 2rem 3rem;
-  text-align: center;
-  font-size: 1.5rem;
-}
-
-.allprojects_table > table > thead {
-  border-bottom: 1px solid white;
+  padding: 1rem;
+  text-align: justify;
+  color: black;
 }
 
 .footer {
@@ -371,13 +363,13 @@ body {
   }
 }
 
-.dialog{
+.dialog {
   width: 500px;
   height: 500px;
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   background: #fff;
   z-index: 9999;
 }
@@ -519,26 +511,25 @@ body {
     padding: 15px;
     margin-left: -10%;
   }
-  .Textbox{
+  .Textbox {
     border-radius: 0px;
     margin-top: 30px;
-    width:100%; 
+    width: 100%;
     margin-left: -20%;
     /* padding-left: 20%; */
     font-size: 1.1rem !important;
-    
   }
-  .Button_login{
-    background-color: #FF6B34;
-                    border-radius: 20px;
-                    margin-top:100%;
-                    margin-left: -30px;
-                    margin-bottom: -50%;
+  .Button_login {
+    background-color: #ff6b34;
+    border-radius: 20px;
+    margin-top: 100%;
+    margin-left: -30px;
+    margin-bottom: -50%;
 
-                    width: 40%;
-                    height: 60px;
-                    font-size: 10px;
-                    padding-top: 20%;
+    width: 40%;
+    height: 60px;
+    font-size: 10px;
+    padding-top: 20%;
   }
   /* .login{
     flex-direction: row;
@@ -556,15 +547,13 @@ body {
     font-size: 20px;
     text-align: center;
     margin-top: -50%;
-    
-    
-  }  
-    .aboutus {
+  }
+  .aboutus {
     display: flex;
     font-size: 12px;
-    flex-direction:   row;
+    flex-direction: row;
     /* align-content: center; */
-    justify-content: space-around; 
+    justify-content: space-around;
     /* justify-items: start ; */
     flex-wrap: wrap;
     padding: 15%;
@@ -580,7 +569,6 @@ body {
     background-size: cover;
     color: #ffffff;
     height: 100vh;
-
   }
   /* #aboutusleft{
     height:10px;
@@ -594,9 +582,7 @@ body {
     justify-content: center;
     align-content: center;
     justify-items: center;
-    height:6rem;
+    height: 6rem;
     margin-top: 2rem;
   }
-
-
 }
