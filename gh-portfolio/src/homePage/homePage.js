@@ -25,7 +25,7 @@ export function HomePage() {
             ORGANIZATION
           </p>
           <p id="linetwo" className="headinglines">
-            Projects Dashboard
+            Projects Dashboard <br /><br />
           </p>
           <div className="login">
             <div className="orgname">
