@@ -108,7 +108,6 @@ export default function Owasp() {
             // console.log("data fetched from local storage");
           }
         }
-      }
       let totalCommits=0;
       let totalProjects=0;
       let totalcon=0;
