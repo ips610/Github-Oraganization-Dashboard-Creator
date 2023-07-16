@@ -12,7 +12,6 @@ import Fade from '@mui/material/Fade';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import {ProgressBar} from "react-loader-spinner";
-import { Hidden } from "@mui/material";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCpDCvJCcfv-v6zgSQHJAJW2s2QncXcOrk",
