@@ -22,7 +22,7 @@ def get_github_data():
         contri=repo.get_contributors()
         contributordata=[]
         for i in contri:
-            contributordata.append({'name':i.login,'commits':i.contributions})
+            contributordata.append({'name':i.login,'commits':i.contributions,'avatar':i.avatar_url})
         comm=repo.get_commits().totalCount
         issu=repo.get_issues(state='all').totalCount
         db.collection('github').document(repo.name).set({
