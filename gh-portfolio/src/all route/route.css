@@ -43,7 +43,7 @@ body {
 }
 
 #lineone {
-  font-size: 8rem;
+  font-size: 5vw;
   font-family: "League Gothic", sans-serif;
   text-shadow: 7px 5px 1px #ff6b34;
   overflow: hidden; /* Ensures the content is not revealed until the animation */
@@ -99,11 +99,17 @@ body {
   height: 100vh;
 }
 
-#aboutus_owasp_logo {
+#aboutus_billi_logo {
+  width: 30vw;
+  height: 30vh;
+  fill: white !important;
+  box-sizing: border-box;
+}
+/* #aboutus_owasp_logo {
   width: 70%;
   height: 70%;
   fill: white !important;
-}
+} */
 #aboutusright {
   font-family: "Figtree", sans-serif;
   font-size: 2rem;

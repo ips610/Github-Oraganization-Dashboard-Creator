@@ -243,14 +243,12 @@ console.log(topper);
             Projects Dashboard
           </p>
         </div>
-        <div className="image">
-          <img src={githubLogo} alt="Github Logo" />
-        </div>
+        
       </div>
 
       <div className="aboutus">
         <div className="aboutusbox" id="aboutusleft">
-          <img src={owaspLogo} alt="OWASP Logo" id="aboutus_owasp_logo" />
+        <img src={githubLogo} alt="Github Logo" id="aboutus_billi_logo" />
         </div>
         <div className="aboutusbox" id="aboutusright">
           Behold the masterpieces from our brilliant contributors, a spectacular
