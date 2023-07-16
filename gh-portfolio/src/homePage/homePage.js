@@ -13,10 +13,51 @@ import jslogo from "../images/js.png";
 import nodejslogo from "../images/nodejs.png";
 import reactlogo from "../images/react.png";
 import firebaselogo from "../images/firebase.png";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import VanillaTilt from "vanilla-tilt";
+import { useNavigate } from "react-router-dom";
 
 export function HomePage() {
+  const navigate = useNavigate();
+  const [text, setText] = useState("");
+  const [idError, setIdError] = useState(0);
+  const [loading, setLoading] = useState(false);
+
+  async function onSubmit() {
+    setLoading(true);
+    const response = await fetch(`https://api.github.com/orgs/${text}`);
+    if (response.status === 200) {
+      // User exists
+      setIdError(0);
+    } else if (response.status === 404) {
+      // User does not exist
+      setIdError(1);
+      setLoading(false);
+      return 2;
+    } else {
+      // Handle other status codes
+      setIdError(2);
+      setLoading(false);
+      return 3;
+    }
+    await fetch("http://localhost:5000/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ orgName: text }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+      navigate(`/${text}`);
+    setLoading(false);
+  }
+
   return (
     <>
       <div className="container">
@@ -35,6 +76,9 @@ export function HomePage() {
                   label="Organization Name"
                   variant="filled"
                   className="Textbox"
+                  onChange={(e) => {
+                    setText(e.target.value);
+                  }}
                   InputProps={{
                     style: {
                       backgroundColor: "white",
@@ -51,6 +95,7 @@ export function HomePage() {
               </Box>
               <Stack>
                 <Button
+                  onClick={() => {onSubmit()}}
                   variant="contained"
                   className="Button_login"
                   endIcon={<SendIcon />}
@@ -71,6 +116,9 @@ export function HomePage() {
                 </Button>
               </Stack>
             </div>
+            {idError === 1 && <h1>Organisation Does not Exist</h1>}
+            {idError === 2 && <h1>Some error occured, Please try again later</h1>}
+            {loading && <h1>Loading...</h1>}
           </div>
         </div>
         {/* <div className="image">
