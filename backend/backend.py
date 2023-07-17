@@ -2,9 +2,10 @@ from github import Github
 import firebase_admin as fb
 from firebase_admin import credentials,firestore
 import sys
-access_token='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'
-cred = credentials.Certificate("./intra-society-owasp-hackathon5-firebase-adminsdk-w32yr-3fdfad25cc.json")
 n=sys.argv[1]
+token=sys.argv[2]
+access_token=token
+cred = credentials.Certificate("./intra-society-owasp-hackathon5-firebase-adminsdk-w32yr-3fdfad25cc.json")
 default_app = fb.initialize_app(cred,{
     'authDomain': "intra-society-owasp-hackathon5.firebaseapp.com",
     'projectId': "intra-society-owasp-hackathon5",

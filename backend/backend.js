@@ -2,14 +2,20 @@ const cp=require('child_process');
 const express=require('express');
 const app=express();
 const cors=require('cors');
-const port=5000;
+const yo=require('dotenv').config(
+    {
+        path:'./.env'
+    }
+);
+const port=process.env.PORT || 5000;
+const token=process.env.TOKEN;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.post('/',(req,res)=>{
     const orgName=req.body.orgName;
     console.log(orgName);
-    cp.exec(`python3 ./backend.py ${orgName}`,(err,stdout,stderr)=>{
+    cp.exec(`python3 ./backend.py ${orgName} ${token}`,(err,stdout,stderr)=>{
         if(err){
             console.log(err);
             res.send("Error");
