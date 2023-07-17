@@ -27,6 +27,12 @@ app.post('/',(req,res)=>{
     })
 }
 )
+
+app.get('/',(req,res)=>{
+    res.send("Server is working");
+}
+),
+
 app.listen(port,()=>{
 
     console.log(`Server running at port ${port}`);
