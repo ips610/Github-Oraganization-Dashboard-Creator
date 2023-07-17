@@ -40,7 +40,7 @@ export function HomePage() {
       setLoading(false);
       return 3;
     }
-    await fetch("https://marvelous-gingersnap-4ea482.netlify.app/", {
+    await fetch("http://localhost:3000", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -49,9 +49,16 @@ export function HomePage() {
     })
       .then((res) => res.json())
       .then((data) => {
+        if(data === "Error"){
+          setIdError(2);
+          setLoading(false);
+          return 3;
+        }
         console.log(data);
       })
       .catch((err) => {
+        setLoading(false);
+        setIdError(3);
         console.log(err);
       });
       navigate(`/${text}`);
