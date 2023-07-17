@@ -1,0 +1,8 @@
+name = "github-organization-project-dashboard-creator"
+main = "src/index.ts"
+compatibility_date = "2023-07-16"
+usage_model = "bundled"
+env = { }
+
+[triggers]
+crons = [ ]
