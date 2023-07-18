@@ -1,12 +1,15 @@
 # Intra-Owasp-hacko-5.1
 Modules to be installed:
-   1: pip3 install virtualenv
-   2: pip3 install Flask 
-   3: pip3 install requests
-   4: pip3 install pygithub
-   5: pip3 install firebase_admin
 
+```
 
+pip3 install virtualenv
+pip3 install Flask 
+pip3 install requests
+pip3 install pygithub
+pip3 install firebase_admin
+
+```
 
 Steps to be followed to run a React App
 
