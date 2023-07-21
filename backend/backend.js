@@ -15,6 +15,7 @@ app.use(express.urlencoded({extended:true}));
 app.post('/',(req,res)=>{
     const orgName=req.body.orgName;
     console.log(orgName);
+    cp.exec('.\\env\\Scripts\\activate')
     cp.exec(`python3 ./backend.py ${orgName} ${token}`,(err,stdout,stderr)=>{
         if(err){
             console.log(err);
@@ -25,6 +26,7 @@ app.post('/',(req,res)=>{
             res.send(stdout);
         }
     })
+    cp.exec('deactivate');
 }
 )
 
