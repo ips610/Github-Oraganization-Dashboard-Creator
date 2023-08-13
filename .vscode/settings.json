@@ -1,3 +1,5 @@
 {
-    "liveServer.settings.multiRootWorkspaceName": "Intra-Owasp-hacko-5.1"
+    "liveServer.settings.multiRootWorkspaceName": "Intra-Owasp-hacko-5.1",
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/9d52f46b-afec-48ba-a74c-9e95b6bc2776/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/gh-portfolio-api",
+    "appService.deploySubpath": "backend"
 }
