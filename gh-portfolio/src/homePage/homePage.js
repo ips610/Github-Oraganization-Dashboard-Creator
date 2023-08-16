@@ -40,7 +40,7 @@ export function HomePage() {
       setLoading(false);
       return 3;
     }
-    await fetch("http://4.240.55.201:80/", {
+    await fetch("//4.240.55.201:80/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
