@@ -62,6 +62,7 @@ export function HomePage() {
         console.log(err);
       });
       navigate(`/${text}`);
+      
     setLoading(false);
   }
 
