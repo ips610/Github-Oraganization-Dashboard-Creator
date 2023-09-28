@@ -40,7 +40,7 @@ export function HomePage() {
       setLoading(false);
       return 3;
     }
-    await fetch("//4.240.55.201:80/", {
+    await fetch("https://flask-production-737d.up.railway.app", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
