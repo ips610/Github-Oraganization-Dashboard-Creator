@@ -2,3 +2,4 @@ firebase_admin==6.2.0
 Flask==2.3.3
 flask_cors==4.0.0
 PyGithub==1.59.1
+python-dotenv==1.0.0
